@@ -28,10 +28,13 @@ class MyYear:
         うるう年かどうかを判定する
 
         - 西暦年が4で割り切れる年は(原則として)閏年
+        - ただし、西暦年が100で割り切れる年は(原則として)平年。
 
         Returns
         -------
         bool
             うるう年ならばTrueを返し、それ以外ならばFalseを返す
         """
+        if self.year % 100 == 0:
+            return False
         return self.year % 4 == 0
