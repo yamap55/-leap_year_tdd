@@ -3,13 +3,22 @@
 """
 
 
-def judgment(year: int) -> bool:
+class MyYear:
     """
-    うるう年を判定する
+    年を保持するClass
+    """
 
-    Returns
-    -------
-    bool
-        うるう年か否か
-    """
-    return True
+    def __init__(self, year: int):
+        """初期化"""
+        pass
+
+    def isLeap() -> bool:
+        """
+        うるう年かどうかを判定する
+
+        Returns
+        -------
+        bool
+            うるう年ならばTrueを返し、それ以外ならばFalseを返す
+        """
+        pass

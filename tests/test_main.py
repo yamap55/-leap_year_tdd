@@ -1,5 +1,6 @@
-from leap_year import main
+from leap_year.main import MyYear
 
 
-def test_judgment():
-    assert main.judgment(2000)
+def test_sample():
+    assert MyYear
+    assert True
