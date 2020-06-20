@@ -1,0 +1,23 @@
+name: check
+on: [push]
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Image
+        run: |
+          docker-compose build
+      - name: Start Container
+        run: |
+          docker-compose up -d
+      - name: Unit Test Execute
+        run: |
+          docker exec leap_year_tdd-container pytest
+      - name: Flake8 Execute
+        run: |
+          docker exec leap_year_tdd-container flake8
+      - name: Pyright Execute
+        run: |
+          docker exec leap_year_tdd-container pyright
