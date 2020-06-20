@@ -23,13 +23,15 @@ class MyYear:
         """
         return str(self.year)
 
-    def isLeap() -> bool:
+    def is_leap(self) -> bool:
         """
         うるう年かどうかを判定する
+
+        - 西暦年が4で割り切れる年は(原則として)閏年
 
         Returns
         -------
         bool
             うるう年ならばTrueを返し、それ以外ならばFalseを返す
         """
-        pass
+        return self.year % 4 == 0
