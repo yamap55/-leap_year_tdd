@@ -22,3 +22,8 @@ def test_is_not_leap_integer_multiple_of_4():
 def test_is_not_leap_year_of_multiple_of_100():
     target_class = MyYear(2100)
     assert not target_class.is_leap()
+
+
+def test_is_leap_year_of_multiple_of_400():
+    target_class = MyYear(2000)
+    assert target_class.is_leap()
