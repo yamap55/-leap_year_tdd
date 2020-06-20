@@ -10,7 +10,7 @@ class MyYear:
 
     def __init__(self, year: int):
         """初期化"""
-        pass
+        self.year = year
 
     def isLeap() -> bool:
         """
