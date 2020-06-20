@@ -11,3 +11,4 @@ services:
       - ${USERPROFILE-~}/.ssh:/home/vscode/.ss
     image: leap_year_tdd-image
     container_name: leap_year_tdd-container
+    tty: true
