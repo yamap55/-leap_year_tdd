@@ -1,0 +1,13 @@
+version: "3"
+services:
+  leap_year_tdd:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        WORKDIR: /project
+    volumes:
+      - .:/project
+      - ${USERPROFILE-~}/.ssh:/home/vscode/.ss
+    image: leap_year_tdd-image
+    container_name: leap_year_tdd-container
