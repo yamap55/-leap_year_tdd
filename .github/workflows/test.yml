@@ -1,7 +1,7 @@
 name: Python package
 on: [push]
 jobs:
-  build:
+  setup:
     runs-on: ubuntu-latest
     timeout-minutes: 300
     steps:
@@ -12,6 +12,30 @@ jobs:
       - name: Start Container
         run: |
           docker-compose up -d
+  test:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v2
       - name: Unit Test Execute
         run: |
           docker exec leap_year_tdd-container pytest
+  lint:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v2
+      - name: Flake8 Execute
+        run: |
+          docker exec leap_year_tdd-container flake8
+  pyright:
+    needs: setup
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v2
+      - name: Pyright Execute
+        run: |
+          docker exec leap_year_tdd-container pyright
